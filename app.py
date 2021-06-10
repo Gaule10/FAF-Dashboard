@@ -10,7 +10,6 @@ import dash_html_components as html
 import dash_table
 import pandas as pd
 from dash.dependencies import Input, Output, State
-from navbar import Navbar
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import datetime
@@ -146,34 +145,6 @@ traits = [big5_df.Openness.mean(),big5_df.Conscientiousness.mean(),big5_df.Extra
          big5_df.Agreeableness.mean(),big5_df.Neuroticism.mean()]
 
 tact_list = [tact_df.Tactical.mean(),tact_df.Technical.mean(),tact_df.GameIQ.mean(),tact_df.Physical.mean()]
-
-
-# In[9]:
-
-
-# Create player basic data table
-
-df = pd.read_csv('Player2.csv')
-basic = ['Name','Age','Position','VARK','Height','Weight']
-big5 = ['Name','Openness','Conscientiousness','Extraversion','Agreeableness','Neuroticism']
-tact = ['Name','Tactical','Technical','GameIQ','Physical']
-
-basic_df = df[basic]
-basic_df.set_index('Name',inplace=True)
-big5_df = df[big5]
-big5_df.set_index('Name',inplace=True)
-tact_df = df[tact]
-tact_df.set_index('Name',inplace=True)
-
-players = df['Name'].unique()
-
-traits = [big5_df.Openness.mean(),big5_df.Conscientiousness.mean(),big5_df.Extraversion.mean(),
-         big5_df.Agreeableness.mean(),big5_df.Neuroticism.mean()]
-
-tact_list = [tact_df.Tactical.mean(),tact_df.Technical.mean(),tact_df.GameIQ.mean(),tact_df.Physical.mean()]
-
-
-# In[10]:
 
 
 # Match Ratings and Training Attendance
